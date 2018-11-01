@@ -3,6 +3,7 @@ package com.firstspring;
 import com.firstspring.domain.Message;
 import com.firstspring.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,7 @@ public class GreetingController {
     @GetMapping("/greeting")
     public String greeting(
             @RequestParam(name="name", required=false, defaultValue="World") String name,
-            Map<String, Object> model
-    ) {
+            Map<String, Object> model) {
         model.put("name", name);
         return "greeting";
     }

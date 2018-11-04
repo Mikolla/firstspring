@@ -47,7 +47,7 @@ public class GreetingController {
         return "main";
     }
 
-  /*  @PostMapping("filter")
+    @PostMapping("filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
         Iterable<Message> messages;
 
@@ -60,5 +60,5 @@ public class GreetingController {
         model.put("messages", messages);
 
         return "main";
-    } */
+    }
 }

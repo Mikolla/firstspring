@@ -29,14 +29,21 @@
                 <th>ID</th>
                 <th>Text</th>
                 <th>Tag</th>
+                <th>Actions</th>
             </tr>
             {{#messages}}
                 <tr>
                     <td>{{id}}</td>
                     <td>{{text}}</td>
                     <td>{{tag}}</td>
+                    <td>
+                        <a href="/editmessage?id={{id}}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/delmessage?id={{id}}">Delete</a>
+                    </td>
                 </tr>
             {{/messages}}
+
         </table>
 
 

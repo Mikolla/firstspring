@@ -2,20 +2,20 @@
 
 <body>
 <div align="center">
-    <form method="post">
-        <label for="uMessage">Сообщение:</label>
-        <input type="text" id="uMessage" name="text" placeholder="Введите сообщение" />
-        <label for="uTag">Тэг:</label>
-        <input type="text" id="uTag" name="tag" placeholder="Тэг">
-        <button type="submit">Добавить</button>
+    <form method="post" action="add">
+        <label for="uMessage">Заметка:</label>
+        <input type="text" id="uMessage" name="text" placeholder="Введите заметку" />
+        <label for="uTag">Заголовок:</label>
+        <input type="text" id="uTag" name="tag" placeholder="Заголовок">
+        <button type="submit" name="action" value="adding">Добавить</button>
     </form>
 </div>
-<div align="center">Список сообщений</div>
+<div align="center">Список заметок</div>
 <div align="right">
 <form method="post" action="filter">
-    <label for="fTag">фильтр по тэгу:</label>
-    <input type="text" id="fTag"  name="filter" placeholder="Тэг">
-    <button type="submit">Найти</button>
+    <label for="fTag">фильтр по названию:</label>
+    <input type="text" id="fTag"  name="filter" placeholder="Заметка">
+    <button type="submit" name="action" value="filtering">Найти</button>
 </form>
 </div>
 

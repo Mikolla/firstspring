@@ -3,9 +3,7 @@ package com.firstspring;
 import com.firstspring.domain.Message;
 import com.firstspring.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,19 +31,19 @@ public class GreetingController {
     }
 
     @PostMapping
-    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
+    public String add(@RequestParam String text, @RequestParam String tag, @RequestParam String action,  Map<String, Object> model) {
         Message message = new Message(text, tag);
         messageRepo.save(message);
         Iterable<Message> messages = messageRepo.findAll();
         model.put("messages", messages);
-        return "main";
+        return "redirect:";
     }
 
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model) {
+    @PostMapping("/filter")
+    public String filter(@RequestParam String filter, @RequestParam String action, Map<String, Object> model) {
         Iterable<Message> messages;
         if (filter != null && !filter.isEmpty()) {
-            messages = messageRepo.findByTag(filter);
+            messages = messageRepo.findMessageByTagContains(filter);
         } else {
             messages = messageRepo.findAll();
         }
